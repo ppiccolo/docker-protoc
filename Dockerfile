@@ -74,6 +74,9 @@ COPY --from=build /go/src/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swag
 ADD all/entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
+ADD all/gen-proto.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/gen-proto.sh
+
 WORKDIR /defs
 ENTRYPOINT [ "entrypoint.sh" ]
 
