@@ -30,7 +30,6 @@ SUPPORTED_LANGUAGES=("go" "ruby" "csharp" "java" "python" "objc" "gogo" "php" "n
 EXTRA_INCLUDES=""
 OUT_DIR=""
 GO_SOURCE_RELATIVE=""
-EXEC_BASH=false
 
 while test $# -gt 0; do
     case "$1" in

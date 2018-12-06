@@ -2,8 +2,16 @@
 
 set -e
 
-if [[ "$1" != "bash" ]]; then
+if [[ "${CI}" == "true" ]]; then
+    echo "Running from CI/CD"
+    exec ${CI_SCRIPT} "$@"
+    exit 0
+elif [[ "$1" != "bash" ]]; then
+    echo "Default mode"
     exec gen-proto.sh "$@"
+    exit 0
+else
+    echo "Running in interactive bash"
+    exec "$@"
 fi
 
-exec "$@"
