@@ -51,6 +51,9 @@ RUN curl -sSL https://github.com/grpc/grpc-web/releases/download/1.0.3/protoc-ge
     -o /tmp/grpc_web_plugin && \
     chmod +x /tmp/grpc_web_plugin
 
+COPY all/fix-protoc-gen-go.sh /tmp
+RUN /tmp/fix-protoc-gen-go.sh v1.2.0
+
 FROM alpine:$alpine AS protoc-all
 
 RUN set -ex && apk --update --no-cache add \
