@@ -3,6 +3,7 @@
 set -e
 
 if [[ "${CI}" == "true" ]]; then
+    [ -f /ran.txt ] && exit || >/ran.txt
     echo "Running from CI/CD"
     cd ${CI_WORKING_DIR}
     exec ${CI_SCRIPT} "$@"
